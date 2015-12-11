@@ -4,12 +4,52 @@
 	<title>Provider Enrollment Form</title>
 </head>
 <body>
+<?php 
+  if (isset($_POST['submit'])) {
+  	// process form
+  	printf('Provider type: %s
+  		<br>Provider fist name: %s
+  		<br>Provider last name: %s
+  		<br>Degree: %s
+  		<br>Address: %s
+  		<br>City: %s
+  		<br>State: %s
+  		<br>Zip: %s
+  		<br>County: %s
+  		<br>Phone number: %s
+  		<br>Fax number: %s
+  		<br>Email: %s
+  		<br>Particpates in Medicaid: %s
+  		<br>Type I NPI: %s
+  		<br>Type II NPI: %s
+  		<br>Billing type: %s
+  		<br>Billing number: %s
+  		<br>Group name: %s
+  		<br>Contact name: %s
+  		<br>Contact title: %s',
+  			$_POST['prov_types'],
+  			$_POST['p_first'],
+  			$_POST['p_last'],
+  			$_POST['deg'],
+  			$_POST['address'],
+  			$_POST['city'],
+  			$_POST['state'],
+  			$_POST['zip'],
+  			$_POST['county'],
+  			$_POST['phone'],
+  			$_POST['fax'],
+  			$_POST['email'],
+  			$_POST['medicaid'],
+  			$_POST['npi_i'],
+  			$_POST['npi_ii'],
+  			$_POST['bill_type'],
+  			$_POST['bill_info'],
+  			$_POST['gn'],
+  			$_POST['cn'],
+  			$_POST['ct']);
+  }
+?>
 <form method="post" action="">
-	Provider type: <br>
-	<input type="checkbox" name="indi" value="i">Individual<br>
-	<input type="checkbox" name="group" value="g">Group<br>
-	<input type="checkbox" name="grpvdr" value="gp">Group Provider<br>
-	<input type="checkbox" name="fac" value="f">Facility<br>
 	Provider type: <br>
 		<select name="prov_types" multiple size="4">
 			<option value="i">Individual</option>
@@ -17,6 +57,34 @@
 			<option value="gp">Group Provider</option>
 			<option value="f">Facility</option>
 		</select><br>
+	Provider first name: <input type="text" name="p_first"><br>
+    Provider last name: <input type="text" name="p_last"><br>
+    Degree: <select name="deg" multiple size="1">
+            <option value="md">MD</option>  
+        </select><br>
+    Address: <input type="text" name="address"><br>
+    City: <input type="text" name="city"><br>
+    State: <select name="state" multiple size="1">
+                    <option value="fl">FL</option>
+           </select><br>
+    Zip: <input type="text" name="zip"><br>
+    County: <input type="text" name="county"><br>
+    Phone number: <input type="text" name="phone"><br>
+    Fax number: <input type="text" name="fax"><br>
+    Email: <input type="text" name="email"><br>
+    Participates in Medicaid: 
+    <input type="radio" name="medicaid" value="y">Yes
+    <input type="radio" name="medicaid" value="n">No<br>
+    Type I NPI: <input type="text" name="npi_i"><br>
+    Type II NPI: <input type="text" name="npi_ii"><br>
+    Billing info: <select name="bill_type">
+                    <option value="ssn">SSN</option>
+                    <option value="tin">TIN</option>
+			      </select><input type="text" name="bill_info"><br>
+    Group name: <input type="text" name="gn"><br>
+    Contact name: <input type="text" name="cn"><br>
+    Contact title: <input type="text" name="ct"><br>
+    <input type="submit" name="submit" value="Submit">
 </form>
 </body>
 </html>
